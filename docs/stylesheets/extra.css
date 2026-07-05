@@ -1,0 +1,322 @@
+/* ============================================================
+   Editorial / academic theme (light only)
+   Data, Machine Learning & AI as a Design Material
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* ---------- Brand palette: ink + a restrained slate-blue ---------- */
+:root {
+  --md-primary-fg-color:        #16233f;   /* ink navy (header) */
+  --md-primary-fg-color--light: #24427f;
+  --md-primary-fg-color--dark:  #0e1830;
+  --md-accent-fg-color:         #23477e;   /* muted slate-blue accent */
+
+  --ink:      #16233f;
+  --accent:   #23477e;
+  --accent-2: #2f5c9e;
+  --rule:     #dfe3ec;   /* light hairline for borders */
+  --rule-ink: #16233f;   /* strong rule for headings */
+
+  --body-fg:  #2a3346;
+
+  /* sidebar accent colours — kept muted for a professional read */
+  --c-origins:  #8a6d2b;   /* sepia / gold */
+  --c-practice: #216a63;   /* teal */
+  --c-critical: #a02a22;   /* crimson */
+  --c-further:  #33518c;   /* indigo */
+
+  --md-default-fg-color:        #24304a;
+  --md-default-fg-color--light: #4a566e;
+  --md-typeset-a-color:         var(--accent);
+}
+
+/* ---------- Typography ---------- */
+body,
+.md-typeset {
+  -webkit-font-smoothing: antialiased;
+}
+
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.72;
+  color: var(--body-fg);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-header__title,
+.md-nav__title {
+  font-family: "Space Grotesk", "Newsreader", sans-serif;
+  letter-spacing: -0.012em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  font-size: 1.95rem;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  margin-bottom: 0.5em;
+}
+
+/* Rule line under section headings — restrained, not heavy */
+.md-typeset h2 {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule-ink);
+  margin-top: 2.7em;
+  font-size: 1.32rem;
+}
+
+.md-typeset h3 {
+  margin-top: 1.9em;
+  font-size: 1.05rem;
+}
+
+/* First paragraph after the page title reads as a standfirst */
+.md-typeset h1 + p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-content__inner { margin-bottom: 4rem; }
+
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol { max-width: 42rem; }
+
+/* Links: understated, underline on hover */
+.md-typeset a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms;
+}
+.md-typeset a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- Header & top nav ---------- */
+.md-header {
+  box-shadow: 0 1px 0 rgba(22, 35, 63, 0.10);
+}
+.md-tabs { border-bottom: 1px solid rgba(255,255,255,0.12); }
+
+/* ---------- Code ---------- */
+:root {
+  --md-code-bg-color: #f6f7f9;
+  --md-code-fg-color: #2a3346;
+}
+.md-typeset pre > code { font-size: 0.72rem; line-height: 1.6; }
+.md-typeset .highlight { border-left: 3px solid var(--accent); }
+.md-typeset code {
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+}
+
+/* ============================================================
+   RIGHT-HAND TABLE OF CONTENTS — make it clearly present
+   ============================================================ */
+.md-sidebar--secondary { color: var(--body-fg); }
+
+.md-nav--secondary {
+  border-left: 1px solid var(--rule);
+  padding-left: 0.4rem;
+}
+
+/* "Table of contents" heading */
+.md-nav--secondary > .md-nav__title {
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding-bottom: 0.4rem;
+  opacity: 1;
+}
+
+/* TOC links — darker than Material's default grey, so they read */
+.md-nav--secondary .md-nav__link {
+  color: #55617a;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  padding: 0.15rem 0;
+  border-left: 2px solid transparent;
+  margin-left: -0.4rem;
+  padding-left: 0.6rem;
+  transition: color 100ms, border-color 100ms;
+}
+.md-nav--secondary .md-nav__link:hover {
+  color: var(--accent);
+}
+
+/* Active item: accent bar + colour + weight — you can see where you are */
+.md-nav--secondary .md-nav__link--active {
+  color: var(--ink);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+/* nested (h3) toc entries slightly indented and lighter */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
+  font-size: 0.67rem;
+  color: #6b7488;
+}
+
+/* ---------- Left nav polish ---------- */
+.md-nav__item .md-nav__link--active { color: var(--accent); font-weight: 600; }
+.md-nav__title { font-size: 0.7rem; }
+
+/* ============================================================
+   The four sidebar admonitions + exercises
+   ============================================================ */
+:root {
+  --md-admonition-icon--origins:  var(--md-admonition-icon--quote);
+  --md-admonition-icon--practice: var(--md-admonition-icon--example);
+  --md-admonition-icon--critical: var(--md-admonition-icon--warning);
+  --md-admonition-icon--further:  var(--md-admonition-icon--abstract);
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.76rem;
+  border: 1px solid var(--rule);
+  border-left-width: 3px;
+  border-radius: 3px;
+  box-shadow: none;
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* origins */
+.md-typeset .admonition.origins,
+.md-typeset details.origins { border-left-color: var(--c-origins); }
+.md-typeset .origins > .admonition-title,
+.md-typeset .origins > summary { background-color: color-mix(in srgb, var(--c-origins) 8%, transparent); }
+.md-typeset .origins > .admonition-title::before,
+.md-typeset .origins > summary::before {
+  background-color: var(--c-origins);
+  -webkit-mask-image: var(--md-admonition-icon--origins);
+          mask-image: var(--md-admonition-icon--origins);
+}
+
+/* practice */
+.md-typeset .admonition.practice,
+.md-typeset details.practice { border-left-color: var(--c-practice); }
+.md-typeset .practice > .admonition-title,
+.md-typeset .practice > summary { background-color: color-mix(in srgb, var(--c-practice) 8%, transparent); }
+.md-typeset .practice > .admonition-title::before,
+.md-typeset .practice > summary::before {
+  background-color: var(--c-practice);
+  -webkit-mask-image: var(--md-admonition-icon--practice);
+          mask-image: var(--md-admonition-icon--practice);
+}
+
+/* critical */
+.md-typeset .admonition.critical,
+.md-typeset details.critical { border-left-color: var(--c-critical); }
+.md-typeset .critical > .admonition-title,
+.md-typeset .critical > summary { background-color: color-mix(in srgb, var(--c-critical) 8%, transparent); }
+.md-typeset .critical > .admonition-title::before,
+.md-typeset .critical > summary::before {
+  background-color: var(--c-critical);
+  -webkit-mask-image: var(--md-admonition-icon--critical);
+          mask-image: var(--md-admonition-icon--critical);
+}
+
+/* further */
+.md-typeset .admonition.further,
+.md-typeset details.further { border-left-color: var(--c-further); }
+.md-typeset .further > .admonition-title,
+.md-typeset .further > summary { background-color: color-mix(in srgb, var(--c-further) 8%, transparent); }
+.md-typeset .further > .admonition-title::before,
+.md-typeset .further > summary::before {
+  background-color: var(--c-further);
+  -webkit-mask-image: var(--md-admonition-icon--further);
+          mask-image: var(--md-admonition-icon--further);
+}
+
+/* running case study */
+:root { --md-admonition-icon--case: var(--md-admonition-icon--note); }
+.md-typeset .admonition.case,
+.md-typeset details.case { border-left-color: #7a4a86; }
+.md-typeset .case > .admonition-title,
+.md-typeset .case > summary { background-color: color-mix(in srgb, #7a4a86 9%, transparent); }
+.md-typeset .case > .admonition-title::before,
+.md-typeset .case > summary::before {
+  background-color: #7a4a86;
+  -webkit-mask-image: var(--md-admonition-icon--case);
+          mask-image: var(--md-admonition-icon--case);
+}
+
+/* exercises */
+.md-typeset details.exercise { border-left-color: var(--accent); }
+.md-typeset .exercise > summary { background-color: color-mix(in srgb, var(--accent) 7%, transparent); }
+.md-typeset .exercise > summary::before {
+  background-color: var(--accent);
+  -webkit-mask-image: var(--md-admonition-icon--question);
+          mask-image: var(--md-admonition-icon--question);
+}
+
+/* ============================================================
+   Landing hero + cards
+   ============================================================ */
+.hero {
+  margin: 0.6rem 0 2.6rem;
+  padding: 2rem 0 1.8rem;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.hero .kicker {
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.66rem;
+  color: var(--accent);
+  margin: 0 0 0.7rem;
+}
+.hero h1.hero-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  margin: 0 0 0.7rem;
+  max-width: 22ch;
+  color: var(--ink);
+}
+.hero p.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+  max-width: 44rem;
+}
+
+.grid.cards > ul > li {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  transition: border-color 120ms, box-shadow 120ms;
+}
+.grid.cards > ul > li:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 10px rgba(22, 35, 63, 0.06);
+}
+
+/* Footer */
+.md-footer-meta { font-size: 0.72rem; }
+
+/* Chapter kicker helper */
+.chapter-kicker {
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.64rem;
+  color: var(--accent);
+  margin-bottom: -0.4rem;
+}

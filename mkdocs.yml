@@ -1,0 +1,100 @@
+site_name: Data & AI for Designers and Journalists
+site_description: >-
+  A hands-on book for designers and journalists — reading and building with
+  data, machine learning and AI, as a material and as evidence. Companion to
+  the HU Master Data-driven Design track.
+site_author: Erik Hekman
+site_url: https://hekman.github.io/data-ai-book/
+
+repo_url: https://github.com/Hekman/data-ai-book
+repo_name: Hekman/data-ai-book
+edit_uri: edit/main/docs/
+
+copyright: >-
+  © Erik Hekman · HU University of Applied Sciences Utrecht ·
+  Text & code CC BY-NC-SA 4.0
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Newsreader
+    code: IBM Plex Mono
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  icon:
+    logo: material/table-large
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Hekman
+    - icon: fontawesome/solid/graduation-cap
+      link: https://www.internationalhu.com/
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - "Chapter 0 · The maker's stance": chapter-0.md
+  - "Part I · Data as Material":
+      - part-i/index.md
+      - "1 · Data, variables & structures": part-i/chapter-1.md
+      - "2 · The origins of a dataset": part-i/chapter-2.md
+      - "3 · The dataframe": part-i/chapter-3.md
+      - "4 · Cleaning & messy data": part-i/chapter-4.md
+      - "5 · Combining datasets": part-i/chapter-5.md
+      - "6 · Exploratory analysis": part-i/chapter-6.md
+      - "7 · Visualisation as argument": part-i/chapter-7.md
+      - "8 · Dashboards": part-i/chapter-8.md
+      - "9 · Collecting your own data": part-i/chapter-9.md
+      - "Project milestone": part-i/milestone.md
+  - "Colophon": colophon.md
