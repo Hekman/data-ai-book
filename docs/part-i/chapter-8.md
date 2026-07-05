@@ -2,7 +2,7 @@
 
 # Dashboards and interactive views
 
-A chart makes one argument. Sometimes what a stakeholder actually needs is not your single argument but a small instrument they can operate themselves, filter to their region, change the date range, pick a category, and see the data respond. That instrument is a **dashboard**, and building one is the step where your analysis stops being a document you hand over and becomes a *tool someone else uses*. That shift changes your job: a document you control; a tool you must design for someone who will use it without you in the room.
+A chart makes one argument. Sometimes what a stakeholder actually needs is not your single argument but a small instrument they can operate themselves (filter to their region, change the date range, pick a category) and see the data respond. That instrument is a **dashboard**, and building one is the step where your analysis stops being a document you hand over and becomes a *tool someone else uses*. That shift changes your job: a document you control; a tool you must design for someone who will use it without you in the room.
 
 The lineage runs straight back through Chapter 7. Playfair's claim, let the eye do the work, industrialised over two centuries into self-service analytics.
 
@@ -27,7 +27,7 @@ demo = gr.Interface(fn=greet, inputs="text", outputs="text")
 demo.launch()      # renders an interactive panel right in the notebook
 ```
 
-**How it works.** `gr.Interface` takes three things: a function `fn`, a description of its `inputs`, and of its `outputs`. Gradio builds the UI, calls your function whenever the input changes, and shows what it returns. That's the whole model, *your analysis is the function; Gradio is the interface around it.* Now make the function do something real: filter a dataframe and draw a chart.
+**How it works.** `gr.Interface` takes three things: a function `fn`, a description of its `inputs`, and of its `outputs`. Gradio builds the UI, calls your function whenever the input changes, and shows what it returns. That's the whole model: *your analysis is the function; Gradio is the interface around it.* Now make the function do something real: filter a dataframe and draw a chart.
 
 ```python
 import pandas as pd
@@ -58,13 +58,13 @@ demo = gr.Interface(
 demo.launch()
 ```
 
-1.  The whole dashboard is this one function. It takes the control's value, filters the data, and returns a chart. Everything you learned in Chapters 3 and 7 is doing the work, Gradio just adds the knob.
+1.  The whole dashboard is this one function. It takes the control's value, filters the data, and returns a chart. Everything you learned in Chapters 3 and 7 is doing the work; Gradio just adds the knob.
 
 !!! practice "In Practice — Your dataset, three controls"
-    Build the smallest dashboard that answers a real question about your Part I dataset, with **no more than three controls**. Pick the single chart that carries the main finding, and add only the filters a genuine user would reach for. Then interrogate your defaults: when the dashboard first loads, before anyone clicks, does it already tell the truth? (Above, the default `"All"` view shows the true overall picture.) If the opening view is misleading or blank, you've mistaken a pile of controls for a tool. The three-control limit does the same work restraint always does in design, it forces you to decide what actually matters.
+    Build the smallest dashboard that answers a real question about your Part I dataset, with **no more than three controls**. Pick the single chart that carries the main finding, and add only the filters a genuine user would reach for. Then interrogate your defaults: when the dashboard first loads, before anyone clicks, does it already tell the truth? (Above, the default `"All"` view shows the true overall picture.) If the opening view is misleading or blank, you've mistaken a pile of controls for a tool. The three-control limit does the same work restraint always does in design: it forces you to decide what actually matters.
 
 !!! further "Going Further — A dashboard is a product, and it foreshadows Part III"
-    The moment your dashboard has a user who isn't you, ordinary product questions arrive: what happens when the filter returns nothing; how do you keep it truthful when the numbers update; who is responsible when someone makes a real decision from it. For a more built-up layout, Gradio's `Blocks` API lets you arrange several controls and panels (`with gr.Blocks() as demo: ...`). And the same tool reappears in Part III as the way you'll ship an *AI-driven* app to a hosted space, the skill of wrapping something powerful in an interface a human can trust is identical, whether the thing inside is a filter or a language model.
+    The moment your dashboard has a user who isn't you, ordinary product questions arrive: what happens when the filter returns nothing; how do you keep it truthful when the numbers update; who is responsible when someone makes a real decision from it. For a more built-up layout, Gradio's `Blocks` API lets you arrange several controls and panels (`with gr.Blocks() as demo: ...`). And the same tool reappears in Part III as the way you'll ship an *AI-driven* app to a hosted space: the skill of wrapping something powerful in an interface a human can trust is identical, whether the thing inside is a filter or a language model.
 
 A dashboard is your analysis, handed over with the controls attached and the responsibility that comes with them. So far we've worked with data someone gave us. The last chapter of Part I is about what to do when the data you need doesn't exist yet.
 
@@ -74,7 +74,7 @@ A dashboard is your analysis, handed over with the controls attached and the res
     Wrap one finding from your Part I dataset in a Gradio dashboard with at most three controls. Make sure the default view (before any interaction) states the main finding truthfully. Write two sentences justifying which controls you included and which you deliberately left out.
 
     ??? note "Guidance"
-        The grade is in the *omissions*. A good answer explains a control you rejected, "I dropped the date filter because 90% of the data is from one month, so it would imply a richness that isn't there." Deciding what not to build is the design act.
+        The grade is in the *omissions*. A good answer explains a control you rejected: "I dropped the date filter because 90% of the data is from one month, so it would imply a richness that isn't there." Deciding what not to build is the design act.
 
 ??? exercise "Exercise 8.2 · Design the empty state"
     Extend your dashboard so that when a filter combination returns no rows, the user sees a clear message instead of a broken or blank chart. Why is the empty state a data-ethics issue as much as a UX one?

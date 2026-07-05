@@ -16,14 +16,14 @@ Concretely, that means you:
 
 ## How it's assessed
 
-The assessment is not "did you find something impressive." It is closer to a **design defence**: can you *walk through* your study and account for your choices, why this dataset, what it can and can't say, what you cleaned and why, where you might be wrong?
+The assessment is not "did you find something impressive." It is closer to a **design defence**: can you *walk through* your study and account for your choices (why this dataset, what it can and can't say, what you cleaned and why, where you might be wrong)?
 
 !!! practice "A rough rubric to aim at"
-    - **Sourcing & provenance**, is the origin documented, and is at least one column genuinely collected/enriched by you?
-    - **Trustworthiness**, are cleaning decisions deliberate and recorded, not silent?
-    - **Analysis**, does the exploration show real understanding of the data's shape (skew, outliers, missingness), not just a headline average?
-    - **Communication**, does the visual argument suit the decision and the audience, with a truthful axis and no chartjunk?
-    - **Candour**, can you name the study's limits and one thing that might be wrong?
+    - **Sourcing & provenance**: is the origin documented, and is at least one column genuinely collected/enriched by you?
+    - **Trustworthiness**: are cleaning decisions deliberate and recorded, not silent?
+    - **Analysis**: does the exploration show real understanding of the data's shape (skew, outliers, missingness), not just a headline average?
+    - **Communication**: does the visual argument suit the decision and the audience, with a truthful axis and no chartjunk?
+    - **Candour**: can you name the study's limits and one thing that might be wrong?
 
 That last row is the one that separates treating data as a design material from merely producing charts: the goal is not the most striking graphic, but work you can **stand behind and explain**.
 
