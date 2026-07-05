@@ -2,15 +2,15 @@
 
 # Data as Material
 
-**Goal:** get fluent with real, messy data — load it, question it, clean it, visualise it, collect your own — and stay honest about what it does and doesn't represent.
+**Goal:** get fluent with real, messy data: load it, question it, clean it, visualise it, collect your own, and stay clear-eyed about what it does and doesn't represent.
 
-Everything in this part builds toward one project: an honest, well-documented piece of work on a dataset you sourced yourself — a *data study* if you're coming at it as a designer, a *data story* if you're coming at it as a journalist — communicated so that a non-technical reader can follow it and trust it.
+Everything in this part builds toward one project: a well-documented, trustworthy piece of work on a dataset you sourced yourself, a *data study* if you're coming at it as a designer, a *data story* if you're coming at it as a journalist, communicated so that a non-technical reader can follow it and trust it.
 
 ## The path through Part I
 
-We start with the **building blocks** — what data is actually made of: values, variables and the structures that hold them. Then we ask **where a dataset comes from**, because its origins already encode decisions you'd otherwise inherit blind. We meet the **dataframe**, the single instrument you'll use for almost everything, and spend real time on **cleaning**, because it is most of the work and nobody warns you. We learn to **combine datasets** into something richer, to **look before we model**, to **argue with pictures**, and to wrap our analysis in a **small interactive tool**. Finally we learn to **collect our own data** when the dataset we need doesn't exist. Honesty is the thread running through all nine chapters.
+We start with the **building blocks**, what data is actually made of: values, variables and the structures that hold them. Then we ask **where a dataset comes from**, because its origins already encode decisions you'd otherwise inherit blind. We meet the **dataframe**, the single instrument you'll use for almost everything, and spend real time on **cleaning**, because it is most of the work and nobody warns you. We learn to **combine datasets** into something richer, to **look before we model**, to **argue with pictures**, and to wrap our analysis in a **small interactive tool**. Finally we learn to **collect our own data** when the dataset we need doesn't exist. Staying truthful about the data is the thread running through all nine chapters.
 
-A single dataset — a synthetic **city bike-share** — runs through the whole part as a case study, so each skill lands on the same real-feeling data rather than a fresh toy each time.
+A single dataset, a synthetic **city bike-share**, runs through the whole part as a case study, so each skill lands on the same real-feeling data rather than a fresh toy each time.
 
 <div class="grid cards" markdown>
 
@@ -64,7 +64,7 @@ A single dataset — a synthetic **city bike-share** — runs through the whole 
 
 -   __9 · Collecting your own data__
 
-    APIs and scraping — and the responsibilities of making datasets.
+    APIs and scraping, and the responsibilities of making datasets.
 
     [:octicons-arrow-right-24: Read](chapter-9.md)
 
@@ -78,7 +78,7 @@ A single dataset — a synthetic **city bike-share** — runs through the whole 
 
 ## Set up your environment
 
-The examples run in any Python notebook. In the course, use the hosted notebooks — nothing to install. If you'd rather run locally:
+The examples run in any Python notebook. In the course, use the hosted notebooks, with nothing to install. If you'd rather run locally:
 
 ```bash
 pip install pandas matplotlib openpyxl

@@ -297,6 +297,13 @@ body,
   color: var(--md-default-fg-color--light);
   max-width: 44rem;
 }
+.hero p.byline {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--md-default-fg-color--light);
+  margin: 1rem 0 0;
+}
 
 .grid.cards > ul > li {
   border: 1px solid var(--rule);
