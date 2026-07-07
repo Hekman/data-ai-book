@@ -7,7 +7,7 @@ hide:
 <div class="hero" markdown>
 <p class="kicker">An open textbook for designers and journalists</p>
 <h1 class="hero-title">Data & AI for Designers and Journalists</h1>
-<p class="hero-sub">Learn to read data and models like a material, with a grain, a history and a politics; to weigh them like evidence; and then to build sound things and tell true stories with them. A hands-on companion to the HU Master Data-driven Design and the Big Data and Design minor.</p>
+<p class="hero-sub">Learn to read data and models like a material, with a grain, a history and a politics; to weigh them like evidence; and then to build sound things and tell true stories with them. A hands-on companion to the HU <a href="https://www.hu.nl/voltijd-opleidingen/master-data-driven-design">Master Data-driven Design</a> and the <a href="https://husite.nl/minors/minors/big-data-and-design/">Big Data and Design</a> minor.</p>
 <p class="byline">Written by Erik Hekman · HU University of Applied Sciences Utrecht</p>
 </div>
 
