@@ -21,7 +21,7 @@ The first is **analytical reasoning with data**: being able to take a real, mess
 
 The second is **building with machine intelligence**: designing and shipping things that use models (classic machine learning, and now large language models and agents), where the hard part is rarely the model and almost always the judgement around it. That capability is the spine of Part III, but it rests entirely on the first: you cannot responsibly build with a model you cannot read.
 
-The three parts map onto the three blocks of the course, but they are organised by idea rather than by week, so you can also read the book straight through.
+The three parts map onto the three blocks of the Master track, but they are organised by idea rather than by week, so you can also read the book straight through.
 
 - **Part I · Data as material.** Work with data you're given and data you collect yourself: dataframes, cleaning, exploratory analysis, visualisation, dashboards, scraping and APIs. The recurring discipline is staying truthful about what the data can support.
 - **Part II · Reading the systems that learn.** Enough machine learning to read it critically: what a model is, how it learns, how it's evaluated, how it fails, how bias enters.

@@ -2,7 +2,7 @@ site_name: Data & AI for Designers and Journalists
 site_description: >-
   A hands-on book for designers and journalists — reading and building with
   data, machine learning and AI, as a material and as evidence. Companion to
-  the HU Master Data-driven Design track.
+  the HU Master Data-driven Design and the Big Data and Design minor.
 site_author: Erik Hekman
 site_url: https://hekman.github.io/data-ai-book/
 
@@ -48,7 +48,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Hekman
     - icon: fontawesome/solid/graduation-cap
-      link: https://www.internationalhu.com/
+      link: https://www.hu.nl/voltijd-opleidingen/master-data-driven-design
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/erikhekman/
 
 markdown_extensions:
   - abbr

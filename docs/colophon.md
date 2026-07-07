@@ -2,7 +2,7 @@
 
 # About this book
 
-**Data & AI for Designers and Journalists** is an open textbook written to accompany the Data & AI track of the [Master Data-driven Design](https://www.internationalhu.com/) at HU University of Applied Sciences Utrecht. It treats data two ways at once, as a *material* a designer shapes and as *evidence* a journalist tests, and is organised by concept rather than by week, so it supports the course but also stands on its own.
+**Data & AI for Designers and Journalists** is an open textbook written to accompany the Data & AI track of the [Master Data-driven Design](https://www.hu.nl/voltijd-opleidingen/master-data-driven-design) and the [Big Data and Design](https://husite.nl/minors/minors/big-data-and-design/) minor at HU University of Applied Sciences Utrecht. It treats data two ways at once, as a *material* a designer shapes and as *evidence* a journalist tests, and is organised by concept rather than by week, so it supports the courses but also stands on its own.
 
 ## The three parts
 

@@ -78,7 +78,7 @@ A single dataset, a synthetic **city bike-share**, runs through the whole part a
 
 ## Set up your environment
 
-The examples run in any Python notebook. In the course, use the hosted notebooks, with nothing to install. If you'd rather run locally:
+The examples run in any Python notebook. In the courses, use the hosted notebooks, with nothing to install. If you'd rather run locally:
 
 ```bash
 pip install pandas matplotlib openpyxl
