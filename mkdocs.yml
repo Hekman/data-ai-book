@@ -87,7 +87,7 @@ plugins:
 
 nav:
   - Home: index.md
-  - "Chapter 0 · The maker's stance": chapter-0.md
+  - “Introduction · The maker's stance": introduction.md
   - "Part I · Data as Material":
       - part-i/index.md
       - "1 · Data, variables & structures": part-i/chapter-1.md
