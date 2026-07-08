@@ -1,4 +1,4 @@
-<p class="chapter-kicker">Chapter 0</p>
+<p class="chapter-kicker">Introduction</p>
 
 # The maker's stance toward data
 

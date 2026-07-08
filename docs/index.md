@@ -23,7 +23,7 @@ This book teaches the first. It treats data, machine learning and AI two ways at
 
     The maker's stance toward data: what this book means by treating data as a *material* and as *evidence*, and how to read the book.
 
-    [:octicons-arrow-right-24: Chapter 0](chapter-0.md)
+    [:octicons-arrow-right-24: Chapter 0](introduction.md)
 
 -   :material-table-large:{ .lg .middle } __Part I · Data as Material__
 
