@@ -1,8 +1,26 @@
-<p class="chapter-kicker">Part I · Chapter 7</p>
+<p class="chapter-kicker">Part I · Chapter 8 · <span class="week">Week 5</span></p>
 
 # Visualisation as argument
 
+!!! guiding "The question this chapter answers"
+    How do I choose the visualisation that answers a question?
+
 A chart is not a decoration you add once the analysis is done. A chart is an argument, a claim about what matters in the data, made in a form the eye grasps faster than any table. This is the chapter where a designer's existing skills become a superpower, because visualisation sits exactly at the join between data work and design, and most people are good at one and weak at the other. You can be good at both. But that power comes with an ethics, because a chart persuasive enough to change a decision is also persuasive enough to mislead, and often the same chart does both.
+
+!!! matters "Why this matters for designers"
+    This is the most visibly "designerly" chapter in Part I, and the temptation to over-design is strongest here. Good data visualisation is an act of *editing*: removing everything that doesn't help the reader reason, and arranging what remains so the insight is unmissable. Sequence, framing and emphasis matter as much as the chart type. And honesty is a constraint, not an afterthought — a truncated axis or a hidden subgroup misleads even when every number is correct.
+
+!!! newsroom "Why this matters for journalists"
+    A published chart is a claim with your name on it, and readers who never finish the article will still take a number away from it. That makes the graphics decisions editorial ones: which comparison you draw, what you annotate, and what you leave out. It also makes the familiar sins — a truncated axis, a cherry-picked start year, a subgroup quietly folded into the total — corrections waiting to happen, because every figure in them is accurate.
+
+!!! outcomes "By the end of this chapter you can"
+    - Match a chart type to the question being asked, and name the visual channel each variable is encoded in.
+    - Build and customise static charts in matplotlib and Seaborn for a defined audience.
+    - Spot and avoid misleading encodings: truncated axes, poor channels, chartjunk, hidden subgroups.
+    - Draw small multiples on shared axes to show a subgroup difference instead of averaging it away.
+    - Write a title that states your claim, and annotate the feature you're arguing about.
+    - Use colour to carry meaning, pick the right palette family, and make a chart that survives in greyscale.
+    - Sequence a few charts into a short, honest narrative, and defend each choice in terms of the reader's decision.
 
 The field was born persuasive. The agenda came first.
 
@@ -51,6 +69,89 @@ pts["orders"] = (pts["visits"] * 0.3 + rng.normal(0, 2, 80)).round()
 pts.plot.scatter(x="visits", y="orders")
 plt.title("More visits, more orders"); plt.show()
 ```
+
+**A word on tools.** Everything above uses **matplotlib**, the layer underneath almost every Python chart, which is worth knowing because it's where you go when you need to control something precisely. **Seaborn** sits on top of it and is usually the faster way to a good default: it thinks in terms of a dataframe plus which variable goes on which channel, which is the grammar of this chapter expressed as an API.
+
+```python
+import seaborn as sns
+sns.barplot(data=sales, y="category", x="revenue", color="#1b6ca8")   # same chart, less code
+sns.scatterplot(data=pts, x="visits", y="orders", hue=None)
+```
+
+Seaborn's `hue`, `size` and `style` arguments *are* Bertin's retinal variables with names, so reaching for one is a deliberate encoding choice rather than a styling tweak. Use Seaborn to get to a defensible chart quickly, then drop to matplotlib for the final edits.
+
+### Question → chart → channel
+
+| The question | Chart | What encodes the number | Watch out for |
+|---|---|---|---|
+| How does this change over time? | line | vertical position | truncated axis; too many lines at once |
+| How do these categories compare? | bar | length | unsorted bars; a baseline that isn't zero |
+| How is one variable distributed? | histogram | bar height (counts) | bin width changing the story |
+| How does a distribution differ by group? | box plot, or small multiples | position and spread | hiding two clusters inside one box |
+| Do these two numbers move together? | scatter | position on both axes | over-plotting; implying causation |
+| What are the parts of a whole? | stacked bar (or pie, if very few parts) | length (or angle) | more than ~4 parts; parts that don't sum |
+| Where is this happening? | map | position, colour | mapping raw counts instead of rates |
+
+The right-hand column is the working part of this table. Every chart type has one characteristic way of misleading, and knowing yours in advance is faster than discovering it in a review.
+
+## Showing subgroups instead of hiding them
+
+Chapter 7 ended on a warning: an average can conceal a reversal inside its subgroups. Visualisation is where you fix that rather than just caveat it, and the tool is **small multiples** — the same chart repeated once per group, on shared axes.
+
+```python
+import seaborn as sns
+import pandas as pd
+
+promo = pd.DataFrame({
+    "rider":    ["casual"]*4 + ["member"]*4,
+    "promo":    ["no", "no", "no", "yes", "no", "yes", "yes", "yes"],
+    "duration": [30, 34, 32, 38, 8, 12, 14, 13],
+})
+
+g = sns.catplot(data=promo, x="promo", y="duration", col="rider",   # (1)!
+                kind="bar", errorbar=None, height=3.2, aspect=0.9)
+g.set_axis_labels("promotion", "avg duration (min)")
+g.figure.suptitle("The promotion lengthened trips — in both groups", y=1.03)
+```
+
+1.  `col="rider"` is the whole idea: one panel per rider type, drawn on **shared axes** so the panels are comparable at a glance.
+
+**How it works.** `catplot` with `col=` splits the data into panels rather than overlaying it. Two panels side by side make the Simpson's paradox from the last chapter *visible*: the promotion bar is taller in both, and the two panels sit at obviously different heights — which is the composition effect that the single overall average concealed. Small multiples are the honest default whenever a comparison might differ by group. They cost you nothing but space, and space is cheaper than a wrong conclusion.
+
+The one rule that makes them work: **shared axes**. If each panel scales to its own data, a small difference and a large one look identical, and you've built a chart that actively misleads. Seaborn shares them by default; matplotlib needs `sharey=True`.
+
+## Say the thing: titles and annotation
+
+Two edits improve a chart more than any amount of restyling, and both involve writing words on it.
+
+First, **make the title your claim, not your column names.** "Revenue by category" describes the axes, which the reader can already see. "Desks earn most, chairs sell most" tells them what you concluded. A descriptive title makes the reader do your interpretive work; an argumentative one puts your reasoning on record where it can be checked — which is the more honest of the two, not the less.
+
+Second, **annotate the point you're arguing about.** A chart with one labelled feature is dramatically more useful than a clean chart with none:
+
+```python
+import matplotlib.pyplot as plt
+
+months = pd.DataFrame({"month": range(1, 7), "signups": [90, 120, 115, 160, 175, 210]})
+ax = months.plot.line(x="month", y="signups", marker="o", legend=False)
+
+ax.annotate("campaign launched",                       # (1)!
+            xy=(4, 160), xytext=(2.2, 200),
+            arrowprops={"arrowstyle": "->", "lw": 1})
+ax.set_title("Signups more than doubled over six months")   # (2)!
+ax.set_ylabel("signups"); ax.set_ylim(0, 230)          # (3)!
+plt.tight_layout(); plt.show()
+```
+
+1.  `xy` is the data point you're pointing at; `xytext` is where the label sits. The arrow does the connecting.
+2.  Check the claim against the numbers before you write it: 90 → 210 is a rise of 133%, so "more than doubled" is exact. "Doubled" would have been sloppy and "tripled" would have been false.
+3.  Still a true baseline. An argumentative title raises the bar for honest encoding, it doesn't lower it.
+
+**How it works.** `annotate` draws text at `xytext` with an arrow to the data point at `xy`, both in data coordinates. The reason this matters so much: without the label, a reader sees a rising line and invents an explanation. With it, they see your explanation and can disagree with it. Annotation converts a chart from a picture into a claim — and a claim is something a reader can hold you to, which is exactly what you want.
+
+Notice what the title deliberately does *not* say. The arrow marks the campaign, and the obvious next sentence — "the campaign doubled signups" — isn't supported: the line was already climbing in February and March, before the campaign existed. So the title reports the change and the annotation supplies the context, leaving the causal question open, which is where the data leaves it too. That gap between "these happened together" and "this caused that" is [Chapter 7](descriptive-statistics.md)'s warning arriving in visual form, and an annotation is the most persuasive way there is to blur it. Point at things; don't imply arrows of causation you can't defend.
+
+!!! critical "Critical Lens — An argumentative title is a responsibility, not a licence"
+    "Make the title your claim" can be misread as permission to editorialise. It isn't. The reason to state your conclusion on the chart is that it makes the conclusion *auditable*: a reader can check the claim against the marks and tell you you're wrong. A title that overstates what the data supports — "Signups doubled" when they rose 40%, or a causal claim from a correlation — is worse than a bland one, because the design has lent it authority. The test: could you defend this sentence, in front of the person who collected the data, using only what's visible in the chart? If not, weaken the sentence rather than strengthening the chart.
 
 ## Choosing fairly
 
@@ -104,16 +205,8 @@ Then there's the principle designers are best placed to champion and most often 
 
 A chart is where your careful, truthful analysis meets another human being. Make the argument clearly, make it true, and take responsibility for how easy you've just made it to believe you. Next we let the reader touch the data themselves.
 
-## Exercises
+!!! exercise "Practice on DataCamp"
+    The exercises for this chapter live on DataCamp. Seaborn is the fastest route from a dataframe to a chart worth arguing with.
 
-??? exercise "Exercise 7.1 · One dataset, three framings"
-    Take one finding from your own data and draw it three ways: a truthful version, an *accidentally* misleading version (bad channel, or a truncated axis), and your best final version. Write a sentence on what changed the argument between them.
-
-    ??? note "What good looks like"
-        The learning is in articulating *why* the misleading one misleads ("the truncated axis exaggerates a 2% difference into an apparent doubling") and defending your final choice in terms of the *decision* the reader has to make, not in terms of which looks nicest.
-
-??? exercise "Exercise 7.2 · Redraw a chart in the wild"
-    Find a chart in a news article, report or app that you think misleads: a truncated axis, a 3-D pie, a rainbow of meaningless colour. Rebuild it faithfully in matplotlib and write two sentences on what the original's design choices were doing to the reader.
-
-    ??? note "Guidance"
-        Be specific and fair: name the exact channel or scale at fault, and grant that the original may not be malicious: many misleading charts come from default settings, not deceit. That fairness is part of reading like a professional.
+    - [Introduction to Data Visualization with Seaborn](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-seaborn) — **Ch. 1 Introduction to Seaborn**, **Ch. 2 Visualizing Two Quantitative Variables**, **Ch. 3 Visualizing a Categorical and a Quantitative Variable.**
+    - [Introduction to Data Visualization with Seaborn](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-seaborn) — **Ch. 4 Customizing Seaborn Plots** *(optional — the typography and colour pass)*.

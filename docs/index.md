@@ -13,7 +13,7 @@ hide:
 
 A designer who has never written a line of code, and a reporter who has never opened a terminal, still work with data every day: a heat-map of taps, an A/B test that says version B "won," a leaked spreadsheet, a public budget in a badly-formatted CSV. You already make decisions, and claims, from these things. The only real question is whether you can *interrogate* the material or can only receive its conclusions.
 
-This book teaches the first. It treats data, machine learning and AI two ways at once: the way a ceramicist treats clay (a **material** you learn well enough to work with its grain) and the way a reporter treats a source (**evidence** you test before you trust). Either way the discipline is the same: learn the stuff well enough to say plainly what it can and cannot support. No prior programming is assumed. Every chapter pairs plain-language ideas with real Python you can run, and ends with exercises.
+This book teaches the first. It treats data, machine learning and AI two ways at once: the way a ceramicist treats clay (a **material** you learn well enough to work with its grain) and the way a reporter treats a source (**evidence** you test before you trust). Either way the discipline is the same: learn the stuff well enough to say plainly what it can and cannot support. No prior programming is assumed. Every chapter pairs plain-language ideas with real Python you can run.
 
 <div class="grid cards" markdown>
 
@@ -21,7 +21,7 @@ This book teaches the first. It treats data, machine learning and AI two ways at
 
     ---
 
-    The maker's stance toward data: what this book means by treating data as a *material* and as *evidence*, and how to read the book.
+    The practitioner's stance toward data: what this book means by treating data as a *material* and as *evidence*, and how to read the book.
 
     [:octicons-arrow-right-24: Introduction](introduction.md)
 
@@ -39,6 +39,8 @@ This book teaches the first. It treats data, machine learning and AI two ways at
 
     Understand machine learning well enough to read it critically. *(In progress.)*
 
+    [:octicons-arrow-right-24: Part II overview](part-ii/index.md)
+
 -   :material-robot-outline:{ .lg .middle } __Part III · Building With AI__
 
     ---
@@ -50,6 +52,25 @@ This book teaches the first. It treats data, machine learning and AI two ways at
 ## How this book is built
 
 The book runs on **two layers** so it works both for a student following the courses and for a designer picking it up cold. The **main text** is the core path. **Going Further** boxes push past the courses, and are skippable on a first read.
+
+Chapters map one-to-one onto the **teaching weeks** of the courses. Each opens with the question it answers, a note on why it matters for designers and one on why it matters for journalists, and closes with the *I-can* statements you should be able to claim by the end:
+
+!!! guiding "The question this chapter answers"
+    Stated plainly at the top, so you know what you're reading for.
+
+!!! matters "Why this matters for designers"
+    Where the technique meets design judgement — and where it can quietly mislead.
+
+!!! newsroom "Why this matters for journalists"
+    Where the same technique meets reporting judgement — and what an editor would want checked before it runs.
+
+!!! outcomes "By the end of this chapter you can"
+    - The concrete things you should be able to do, matching the course's weekly learning outcomes.
+
+And each chapter closes with the hands-on practice for it:
+
+!!! exercise "Practice on DataCamp"
+    The exercises that go with the chapter, named down to the DataCamp chapter, so you type the ideas as well as read them.
 
 Woven through every chapter are four kinds of **sidebar**, so history and ethics live *beside* the practice rather than in a separate silo:
 
@@ -65,13 +86,7 @@ Woven through every chapter are four kinds of **sidebar**, so history and ethics
 !!! further "Going Further — beyond the courses"
     Harder techniques, deeper theory, further reading, for when you want more.
 
-And each chapter carries **runnable code** with a *how it works* explanation, plus **exercises** with collapsible solutions:
-
-??? exercise "Try it — how exercises look"
-    You'll find tasks like this at the end of every chapter. Open the solution only after you've had a real go.
-
-    ??? note "Show a solution"
-        Solutions appear here, one reasonable approach among several. The point is rarely a single right answer; it's whether you can explain your choices.
+And each chapter carries **runnable code** with a *how it works* explanation.
 
 ---
 

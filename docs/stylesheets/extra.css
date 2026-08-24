@@ -25,6 +25,7 @@
   --c-practice: #216a63;   /* teal */
   --c-critical: #a02a22;   /* crimson */
   --c-further:  #33518c;   /* indigo */
+  --c-newsroom: #7d3f63;   /* plum */
 
   --md-default-fg-color:        #24304a;
   --md-default-fg-color--light: #4a566e;
@@ -178,6 +179,13 @@ body,
   --md-admonition-icon--practice: var(--md-admonition-icon--example);
   --md-admonition-icon--critical: var(--md-admonition-icon--warning);
   --md-admonition-icon--further:  var(--md-admonition-icon--abstract);
+  --md-admonition-icon--guiding:  var(--md-admonition-icon--question);
+  --md-admonition-icon--matters:  var(--md-admonition-icon--tip);
+  /* newspaper — mdi newspaper-variant-outline */
+  --md-admonition-icon--newsroom: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5v14H4V5h16m0-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-2 14h-4v-2h4v2m0-4h-4v-2h4v2m0-4h-4V7h4v2m-6 8H6v-4h6v4m0-6H6V7h6v4z"/></svg>');
+  --md-admonition-icon--outcomes: var(--md-admonition-icon--success);
+  /* laptop — mdi laptop, used for the DataCamp practice box */
+  --md-admonition-icon--exercise: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v10H4V6m16 12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2H0v2h24v-2h-4z"/></svg>');
 }
 
 .md-typeset .admonition,
@@ -243,6 +251,62 @@ body,
           mask-image: var(--md-admonition-icon--further);
 }
 
+/* ---------- Course-mirroring blocks: guiding question / why it matters / outcomes ---------- */
+
+/* guiding question — sits under the chapter title */
+.md-typeset .admonition.guiding,
+.md-typeset details.guiding { border-left-color: var(--accent); }
+.md-typeset .guiding > .admonition-title,
+.md-typeset .guiding > summary { background-color: color-mix(in srgb, var(--accent) 8%, transparent); }
+.md-typeset .guiding > .admonition-title::before,
+.md-typeset .guiding > summary::before {
+  background-color: var(--accent);
+  -webkit-mask-image: var(--md-admonition-icon--guiding);
+          mask-image: var(--md-admonition-icon--guiding);
+}
+.md-typeset .guiding p { font-style: italic; }
+
+/* why this matters for designers */
+.md-typeset .admonition.matters,
+.md-typeset details.matters { border-left-color: var(--c-practice); }
+.md-typeset .matters > .admonition-title,
+.md-typeset .matters > summary { background-color: color-mix(in srgb, var(--c-practice) 6%, transparent); }
+.md-typeset .matters > .admonition-title::before,
+.md-typeset .matters > summary::before {
+  background-color: var(--c-practice);
+  -webkit-mask-image: var(--md-admonition-icon--matters);
+          mask-image: var(--md-admonition-icon--matters);
+}
+
+/* why this matters for journalists */
+.md-typeset .admonition.newsroom,
+.md-typeset details.newsroom { border-left-color: var(--c-newsroom); }
+.md-typeset .newsroom > .admonition-title,
+.md-typeset .newsroom > summary { background-color: color-mix(in srgb, var(--c-newsroom) 6%, transparent); }
+.md-typeset .newsroom > .admonition-title::before,
+.md-typeset .newsroom > summary::before {
+  background-color: var(--c-newsroom);
+  -webkit-mask-image: var(--md-admonition-icon--newsroom);
+          mask-image: var(--md-admonition-icon--newsroom);
+}
+
+/* by the end of this chapter you can — the I-can statements */
+.md-typeset .admonition.outcomes,
+.md-typeset details.outcomes { border-left-color: var(--c-further); }
+.md-typeset .outcomes > .admonition-title,
+.md-typeset .outcomes > summary { background-color: color-mix(in srgb, var(--c-further) 8%, transparent); }
+.md-typeset .outcomes > .admonition-title::before,
+.md-typeset .outcomes > summary::before {
+  background-color: var(--c-further);
+  -webkit-mask-image: var(--md-admonition-icon--outcomes);
+          mask-image: var(--md-admonition-icon--outcomes);
+}
+
+/* week badge in the chapter kicker */
+.md-typeset .chapter-kicker .week {
+  color: var(--accent);
+}
+
 /* running case study */
 :root { --md-admonition-icon--case: var(--md-admonition-icon--note); }
 .md-typeset .admonition.case,
@@ -256,13 +320,16 @@ body,
           mask-image: var(--md-admonition-icon--case);
 }
 
-/* exercises */
+/* exercises / DataCamp practice box */
+.md-typeset .admonition.exercise,
 .md-typeset details.exercise { border-left-color: var(--accent); }
+.md-typeset .exercise > .admonition-title,
 .md-typeset .exercise > summary { background-color: color-mix(in srgb, var(--accent) 7%, transparent); }
+.md-typeset .exercise > .admonition-title::before,
 .md-typeset .exercise > summary::before {
   background-color: var(--accent);
-  -webkit-mask-image: var(--md-admonition-icon--question);
-          mask-image: var(--md-admonition-icon--question);
+  -webkit-mask-image: var(--md-admonition-icon--exercise);
+          mask-image: var(--md-admonition-icon--exercise);
 }
 
 /* ============================================================

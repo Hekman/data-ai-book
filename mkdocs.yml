@@ -84,20 +84,41 @@ markdown_extensions:
 
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        part-i/chapter-1.md: part-i/data-variables-structures.md
+        part-i/chapter-2.md: part-i/where-data-comes-from.md
+        part-i/chapter-3.md: part-i/the-dataframe.md
+        part-i/chapter-4.md: part-i/cleaning-messy-data.md
+        part-i/chapter-5.md: part-i/combining-datasets.md
+        part-i/chapter-6.md: part-i/descriptive-statistics.md
+        part-i/chapter-7.md: part-i/visualisation.md
+        part-i/chapter-8.md: part-i/dashboards.md
+        part-i/chapter-9.md: part-i/apis.md
 
 nav:
   - Home: index.md
-  - “Introduction · The maker's stance": introduction.md
+  - "Introduction · The practitioner's stance": introduction.md
   - "Part I · Data as Material":
       - part-i/index.md
-      - "1 · Data, variables & structures": part-i/chapter-1.md
-      - "2 · The origins of a dataset": part-i/chapter-2.md
-      - "3 · The dataframe": part-i/chapter-3.md
-      - "4 · Cleaning & messy data": part-i/chapter-4.md
-      - "5 · Combining datasets": part-i/chapter-5.md
-      - "6 · Exploratory analysis": part-i/chapter-6.md
-      - "7 · Visualisation as argument": part-i/chapter-7.md
-      - "8 · Dashboards": part-i/chapter-8.md
-      - "9 · Collecting your own data": part-i/chapter-9.md
-      - "Project milestone": part-i/milestone.md
+      - "1 · Data, variables & structures": part-i/data-variables-structures.md
+      - "2 · The dataframe": part-i/the-dataframe.md
+      - "3 · Cleaning & messy data": part-i/cleaning-messy-data.md
+      - "4 · Combining datasets": part-i/combining-datasets.md
+      - "5 · Where data comes from": part-i/where-data-comes-from.md
+      - "6 · Collecting data: APIs": part-i/apis.md
+      - "7 · Descriptive statistics": part-i/descriptive-statistics.md
+      - "8 · Visualisation as argument": part-i/visualisation.md
+      - "9 · Dashboards": part-i/dashboards.md
+      - "10 · Collecting data: Scraping the web": part-i/scraping.md
+  - "Part II · Reading the Systems That Learn":
+      - part-ii/index.md
+      - "11 · The loop: interfaces that teach models": part-ii/the-loop.md
+      - "12 · Correlation & regression": part-ii/regression.md
+      - "13 · Decision trees": part-ii/decision-trees.md
+      - "14 · k-nearest neighbours": part-ii/k-nearest-neighbours.md
+      - "15 · k-means clustering": part-ii/clustering.md
+      - "16 · Cosine similarity & recommenders": part-ii/similarity-and-recommenders.md
+      - "17 · Text as data": part-ii/text-as-data.md
+      - "18 · The interface around the model": part-ii/the-interface-around-the-model.md
   - "Colophon": colophon.md
