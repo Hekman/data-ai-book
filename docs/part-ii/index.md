@@ -6,9 +6,6 @@
 
 > **The question running through this part:** *What is this system learning, from whose behaviour, and how would we know it is any good?*
 
-!!! note "🚧 Work in progress"
-    Part II is being written alongside the Block B teaching weeks. The chapters below exist as placeholders so the shape of the part is visible; each one lands before the week it belongs to.
-
 Part I taught you to read data. Part II teaches you to read the systems that learn from it: the feeds, rankings, filters and suggestions you touch every day. You are not here to become an ML engineer. You are here to understand the loop between an interface and a model well enough to stand in front of any ML-powered product and say what it is learning, from whose behaviour, and where the design choices live.
 
 ## The path through Part II
